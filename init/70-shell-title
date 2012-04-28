@@ -1,0 +1,19 @@
+# Change the window title of X terminals 
+prompt_title_xterm()
+{
+	echo -ne "\033]0;${USER}@${FQDN}:${PWD/$HOME/~}\007";
+}
+
+prompt_title_screen()
+{
+	echo -ne "\033_${USER}@${FQDN}:${PWD/$HOME/~}\033\\";	
+}
+
+case ${TERM} in
+	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
+		PROMPT_COMMAND="$PROMPT_COMMAND prompt_title_xterm;"
+		;;
+	screen)
+		PROMPT_COMMAND="$PROMPT_COMMAND prompt_title_screen;"
+		;;
+esac

@@ -1,0 +1,16 @@
+
+ps1_status_success=$'\033[1;32m'
+ps1_status_error=$'\033[1;31m'
+
+prompt_status()
+{
+	if [[ $prompt_status_return -eq 0 ]]
+	then
+		PS1_status=$ps1_status_success
+	else
+		PS1_status="$ps1_status_error$prompt_status_return "
+	fi
+}
+
+PS1="$PS1 \[\$PS1_status\]$\[\e[0m\] "
+PROMPT_COMMAND="prompt_status_return=\$?; prompt_status; $PROMPT_COMMAND"

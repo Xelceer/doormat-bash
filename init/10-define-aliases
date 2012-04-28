@@ -1,0 +1,7 @@
+# Load Aliases
+for SCRIPT in ~/.doormat/bash/*.alias
+do
+	if [ -x "${SCRIPT}" ]; then
+		. ${SCRIPT}
+	fi
+done
