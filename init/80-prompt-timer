@@ -12,14 +12,19 @@ timer_calculate()
 	# Read the last set time
 	read begin_s begin_ns <<< "$prompt_timer_begin"
 
-	begin_ns="${begin_ns##+(0)}"
-	# PENDING - date takes about 11ms, maybe could do better by digging in
-	# /proc/$$.  
+	# PENDING - date takes about 11ms
+	# Perhaps could do better by digging in /proc/$$.  
 	read end_s end_ns <<< $(date +"%s %N")
-	end_ns="${end_ns##+(0)}"
+
+	# The nanoseconds sometimes come up with a leading 0
+	# which makes bash thinks its in base-10
+	# convert these numbers for bash
+	begin_ns=$((10#${begin_ns}))
+	end_ns=$((10#${end_ns}))
+
 	local s=$((end_s - begin_s))
 	local ms
-	if [ "$end_ns" -ge "$begin_ns" ]
+	if [ $end_ns -ge $begin_ns ]
 	then
 		ms=$(((end_ns - begin_ns) / 1000000))
 	else
