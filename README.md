@@ -9,9 +9,9 @@ Usage
 =====
 This is meant to be used inside something I call doormat, but it doesn't need to be. 
 
-	mkdir .doormat/bash
-	mv .bashrc .bashrc.bak-$(date +%Y-%m-%d) # Don't blame me if you lose your old .bashrc file
-	ln -s .doormat/bash/bashrc .bashrc
+	mkdir .doormat
+	git clone https://github.com/AlReece45/doormat-bash bash
+	ln -s ~/.doormat/bash/bashrc ~/.bashrc
 
 Standard Stuff
 ==============
