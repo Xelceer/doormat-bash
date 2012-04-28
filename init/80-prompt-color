@@ -35,9 +35,8 @@ if ${use_color} ; then
 	# COLOR_OFF='\[\033[00m\]'
 
 	if [[ ${EUID} == 0 ]] ; then
-		PS1="$RED\h$LRED."'$(hostname -d)'"$PURPLE \! $BLUE"'\W$COLOROFF'
+		PS1="$RED\h$LRED"'${FQDN##\h}'"$PURPLE \! $BLUE\w$COLOROFF"
 	else
-		# PS1='\[\033[01;32m\]\u@$(hostname -f)\[\033[01;34m\] \w \$\[\033[00m\] '
 		PS1="$GREEN\u$LGREEN@$GREEN\h$LGREEN"'${FQDN##\h}'"$PURPLE \! $BLUE\w$COLOROFF"
 	fi
 
