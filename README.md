@@ -7,8 +7,14 @@ The prompt looks a little like this (with a few more colors):
 
 Screenshots
 ===========
-* [As normal user](http://reece45.com/projects/doormat/bash/2012-04-user.png)
-* [As root](http://reece45.com/projects/doormat/bash/2012-04-root.png)
+
+Non-privileged User (non-root)
+------------------------------
+![Screenshot of prompt as normal user](http://reece45.com/projects/doormat/bash/2012-04-user.png)
+
+Privileged User (root)
+-----------------------
+![Screenshot of prompt as root](http://reece45.com/projects/doormat/bash/2012-04-root.png)
 
 Usage
 =====
