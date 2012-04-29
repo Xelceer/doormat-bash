@@ -1,0 +1,35 @@
+# If enable, see if the terminal supports colors
+if [[ $DOORMAT_COLORS -eq 1 ]];
+then
+	safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
+	match_lhs=""
+	if [[ -f ~/.dir_colors ]]
+	then
+		match_lhs="${match_lhs}$(<~/.dir_colors)"
+	fi
+
+	if [[ -f /etc/DIR_COLORS ]]
+	then
+		match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
+	fi
+
+	if [[ -z ${match_lhs} ]]
+	then
+		type -P dircolors > /dev/null 
+		if [ $? -eq 0 ]
+		then
+			match_lhs=$(dircolors --print-database)
+		fi
+	fi
+
+	if [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]]
+	then
+		use_color=true
+	fi
+
+	if [[ ! $use_color ]]
+	then
+		DOORMAT_COLORS="0"
+	fi
+	unset safe_term match_lhs use_color
+fi

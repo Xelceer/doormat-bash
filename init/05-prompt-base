@@ -1,0 +1,10 @@
+# Set PS1 if it isn't already set by configuration
+if [[ -z $PS1 ]]
+then
+	if [[ ${EUID} == 0 ]]
+	then
+		PS1='$PS1_stopwatch \h \! \W \$ '
+	else
+		PS1='$PS1_stopwatch \u@\h \! \w \$ '
+	fi
+fi
