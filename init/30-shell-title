@@ -1,0 +1,44 @@
+# Change the window title of X terminals 
+if [[ $DOORMAT_TITLE -eq 1 ]]
+then
+	if [ $DOORMAT_FQDN -eq 1 ]
+	then
+		if [ -z $PS1_fqdn ]
+		then
+			PS1_fqdn=$(hostname -f)
+		fi
+		prompt_title_xterm()
+		{
+			echo -ne "\033]0;${USER}@${PS1_fqdn}:${PWD/$HOME/~}\007"
+		}
+
+		prompt_title_screen()
+		{
+			echo -ne "\033_${USER}@${PS1_fqdn}:${PWD/$HOME/~}\033\\"
+		}
+	else
+		prompt_title_xterm()
+		{
+			echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"
+		}
+
+		prompt_title_screen()
+		{
+			echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"
+		}
+	fi
+	PROMPT_TITLE=""
+	case ${TERM} in
+		xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
+			PROMPT_TITLE="prompt_title_xterm;"
+			;;
+		screen)
+			PROMPT_TITLE="prompt_title_screen;"
+		;;
+	esac
+
+	if [[ ! -z $PROMPT_TITLE ]]
+	then
+		PROMPT_COMMAND="$PROMPT_COMMAND $PROMPT_TITLE"
+	fi
+fi

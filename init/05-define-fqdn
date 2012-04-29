@@ -1,7 +1,0 @@
-# Get the FQDN
-# cygwin doesn't have the option to get FQDN
-if [[ "$OSTYPE" == 'cygwin' ]]; then
-	FQDN=$(hostname)
-else
-	FQDN=$(hostname -f)
-fi

@@ -1,0 +1,9 @@
+# if FQDN is enabled, replace \h with FQDN (customizable by colors)
+if [[ $DOORMAT_FQDN -eq 1 ]]
+then
+	if [ -z $PS1_fqdn ]
+	then
+		PS1_fqdn=$(hostname -f)
+	fi
+	PS1=${PS1/\\h/\\h$\{PS1_fqdn\#\#\\h\}}
+fi
