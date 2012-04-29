@@ -67,7 +67,7 @@ then
 				PS1_status_text=""
 			else
 				PS1_status_color="$DOORMAT_COLOR_PROMPT_ERROR"
-				PS1_status_text="$prompt_return "
+				PS1_status_text="$ps1_return "
 			fi
 		}
 
