@@ -1,0 +1,3 @@
+# Reset/clean important variables
+PROMPT_COMMAND="ps1_return=\$?"
+PS1=""

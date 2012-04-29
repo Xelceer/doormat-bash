@@ -1,0 +1,2 @@
+# Configure primary prompt (PS1)
+PS1='$PS1_stopwatch \u@\h \! \w \$ '
