@@ -32,15 +32,15 @@ Standard Stuff
 
 Useful Stuff
 ============
+* The far left is how long the last command took to run (from the time you push enter to the time the prompt runs) to the thousandth of a second.
 * The hostname is bold and the domain name is not (hostname stands out)
 * The @ sign is not bold, so you the username is easier to distinguish
-* The far left is how long the last command took to run (from the time you push enter to the time the prompt runs) to the thousandth of a second.
 * If the command took more than 60 seconds to run, it formats in in hh:mm format
 * The far right ($ or # depending on the user), is GREEN if the command ran successfully and RED when it returns an error code
 * If the command returns an error code, the error code is displayed between the directory and the prompt sign (in red)
+* PS1 is configured easily (without worring about colors). Colors are added to PS1 when support is detected
 
 Things to fix
 =============
-* The $runtime does does not do color-detection
-* The $status script should do color-detection
-* The prompt-color script could use a lot of cleaning up
+* Crappy DNS servers slow down login time for some reason (should just be a read from /etc/hosts)
+* Should write a script to output this to one .bashrc file
