@@ -1,0 +1,74 @@
+# Time how long eat command takes to run
+if [[ $DOORMAT_STOPWATCH -eq 1 ]]
+then
+	ps1_stopwatch_start()
+	{
+		if [ -z "$ps1_stopwatch_start_time" ]
+		then
+			ps1_stopwatch_start_time="$(date +"%s %N")"
+		fi
+	}
+
+	ps1_stopwatch_calculate()
+	{
+		# Read the last set time
+		read begin_s begin_ns <<< "$ps1_stopwatch_start_time"
+
+		# PENDING - date takes about 11ms
+		# Perhaps could do better by digging in /proc/$$.  
+		read end_s end_ns <<< $(date +"%s %N")
+
+		# The nanoseconds sometimes come up with a leading 0
+		# which makes bash thinks its in base-10
+		# convert these numbers for bash
+		begin_ns=$((10#${begin_ns}))
+		end_ns=$((10#${end_ns}))
+
+		local s=$((end_s - begin_s))
+		local ms
+		if [ $end_ns -ge $begin_ns ]
+		then
+			ms=$(((end_ns - begin_ns) / 1000000))
+		else
+			s=$((s - 1))
+			ms=$(((1000000000 + end_ns - begin_ns) / 1000000))
+		fi
+		PS1_stopwatch="$(printf "%u.%03u" $s $ms)"
+		if [ "$s" -ge 60 ]
+		then
+			PS1_stopwatch="$PS1_stopwatch [$(ps1_stopwatch_format $s)]"
+		fi
+	}
+
+	ps1_stopwatch_format()
+	{
+		local s=$1
+		local days=$((s / (60*60*24)))
+		s=$((s - days*60*60*24))
+		local hours=$((s / (60*60)))
+		s=$((s - hours*60*60))
+		local min=$((s / 60))
+		if [ "$days" != 0 ]
+		then
+			local day_string="${days}d "
+		fi
+		printf "$day_string%02d:%02d\n" $hours $min
+	}  
+
+	ps1_stopwatch_stop()
+	{
+		status=$?
+		local size=16
+		ps1_stopwatch_calculate
+		ps1_stopwatch_start_time=
+	}
+
+	ps1_stopwatch_start
+
+	trap ps1_stopwatch_start DEBUG
+	
+	PROMPT_COMMAND="$PROMPT_COMMAND ps1_stopwatch_stop; "
+else
+	PS1=${PS1/\$PS1_stopwatch /}
+	PS1=${PS1/\$\{PS1_stopwatch\} /}
+fi
