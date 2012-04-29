@@ -1,5 +1,5 @@
 # cygwin doesn't have the option to get FQDN
 if [[ "$OSTYPE" == 'cygwin' ]]
 then
-	DOORMAN_FQDN="0"
+	DOORMAT_FQDN="0"
 fi
