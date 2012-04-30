@@ -1,13 +1,14 @@
 # Configure colors (when enabled)
-DOORMAT_COLOR_AT=$'\003[0;32m' # light green
-DOORMAT_COLOR_DOMAIN=$'\003[0;32m' # light green
-DOORMAT_COLOR_COMMAND_NUMBER=$'\003[1;35m' # purple
-DOORMAT_COLOR_CWD=$'\003[1;34m' # blue
-DOORMAT_COLOR_INPUT=$'\003[0m' # reset color for input
-DOORMAT_COLOR_HISTORY_NUMBER=$'\003[1;35m' # purple
-DOORMAT_COLOR_HOSTNAME=$'\003[1;32m' # bold green
-DOORMAT_COLOR_PROMPT_SUCCESS=$'\003[1;32m' # bold green
-DOORMAT_COLOR_PROMPT_ERROR=$'\003[1;31m' # bold red
-DOORMAT_COLOR_PROMPT=$'\003[0m' # bold red
-DOORMAT_COLOR_STOPWATCH=$'\003[1;33m' # yellow
-DOORMAT_COLOR_USER=$'\003[1;32m' # bold green
+DOORMAT_COLOR_AT='[0;32m' # light green
+DOORMAT_COLOR_DOMAIN='[0;32m' # light green
+DOORMAT_COLOR_COMMAND_NUMBER='[1;35m' # purple
+DOORMAT_COLOR_CWD='[1;34m' # blue
+DOORMAT_COLOR_INPUT='[0m' # reset color for input
+DOORMAT_COLOR_HISTORY_NUMBER='[1;35m' # purple
+DOORMAT_COLOR_HOSTNAME='[1;32m' # bold green
+DOORMAT_COLOR_PROMPT_SUCCESS='[1;32m' # bold green
+DOORMAT_COLOR_PROMPT_ERROR='[1;31m' # bold red
+DOORMAT_COLOR_PROMPT='[0m' # bold red
+DOORMAT_COLOR_STOPWATCH='[1;33m' # yellow
+DOORMAT_COLOR_USER='[1;32m' # bold green
+
