@@ -1,3 +1,10 @@
+# Check for basic compatibility (date command must support nanoseconds)
+# BSD versions (like on a Mac) do not support this
+if [[ "$(date +%N)" == 'N' ]]
+then
+	DOORMAT_STOPWATCH="0"
+fi
+
 # Time how long eat command takes to run
 if [[ $DOORMAT_STOPWATCH -eq 1 ]]
 then
