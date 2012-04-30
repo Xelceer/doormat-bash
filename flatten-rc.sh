@@ -1,6 +1,10 @@
 #!/bin/sh
 
 echo '#'
+echo '# Flattened Doormat Configuration'
+echo "# Generated: $(date +%Y-%m-%d\ %H:%M:%S)"
+echo "# Version: $(git describe)"
+echo '#'
 echo '# Configuration'
 echo '# Edit/add configuration/customizatinos hereto enable/disable functionality'
 echo '#'
@@ -12,6 +16,7 @@ do
 	if [ -x "${SCRIPT}" ]; then
 		echo "# File: ${SCRIPT}"
 		cat ${SCRIPT}
+		echo ""
 	fi
 done
 
