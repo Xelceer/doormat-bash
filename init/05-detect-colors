@@ -29,7 +29,18 @@ then
 
 	if [[ ! $use_color ]]
 	then
+		COLORS="$(tput colors 2> /dev/null)"
+		if [[ $? -eq 0 && $COLORS -gt 2 ]]
+		then
+			use_color=true
+		fi
+		unset COLORS
+	fi
+
+	if [[ ! $use_color ]]
+	then
 		DOORMAT_COLORS="0"
 	fi
+
 	unset safe_term match_lhs use_color
 fi
