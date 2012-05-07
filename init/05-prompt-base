@@ -1,5 +1,5 @@
 # Set PS1 if it isn't already set by configuration
-if [[ -z $PS1 ]]
+if [[ -z $DOORMAT_PS1 ]]
 then
 	if [[ ${EUID} == 0 ]]
 	then
@@ -7,4 +7,6 @@ then
 	else
 		PS1='$PS1_stopwatch \u@\h \! \w \$ '
 	fi
+else
+	PS1=$DOORMAT_PS1
 fi
