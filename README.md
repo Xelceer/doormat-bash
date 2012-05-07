@@ -1,9 +1,11 @@
 
-I cleaned up my bash (shell) configuration and broke it up into seperate files and modules. I didn't really plan on sharing it, but others may find it useful and it makes distribution on my part very simple.
+This is essentially a bashrc framework for various modules.
 
-The prompt looks a little like this (with a few more colors):
+Colors are added in automatically. You set the prompt using $DOORMAT_PS1 and can reload the bashrc to see the changes (with color if detected). You set the colors in the config.
 
-[$runtime] $username@[$hostname].[$domainname] # \W $
+The configuration and init scripts are divided into modules, to make it easier to develop. Configuration values can be changed quickly by setting the variable and running `source ~/.bashrc`
+
+A more static configuration may be generated using the flatten-rc.sh script
 
 Screenshots
 ===========
