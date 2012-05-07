@@ -10,6 +10,9 @@ echo '# Edit/add configuration/customizatinos hereto enable/disable functionalit
 echo '#'
 echo
 
+echo 'if [ -z "$DOORMAT_CONFIG" ]'
+echo 'then'
+
 # Load config
 for SCRIPT in ~/.doormat/bash/config/*
 do
@@ -19,6 +22,8 @@ do
 		echo ""
 	fi
 done
+echo 'fi'
+echo 'DOORMAT_CONFIG="1"'
 
 echo
 echo '#'
