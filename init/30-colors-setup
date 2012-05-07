@@ -1,5 +1,5 @@
 # Enable colors for commands like ls and grep
-if [[ $DOORMAN_COLORS -eq 1 ]]
+if [[ $DOORMAT_COLORS -eq 1 ]]
 then
 	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
 	if type -P dircolors >/dev/null ; then
