@@ -1,11 +1,22 @@
 
 This is essentially a bashrc framework for various modules.
 
+Features
+========
+
 Colors are added in automatically. You set the prompt using $DOORMAT_PS1 and can reload the bashrc to see the changes (with color if detected). You set the colors in the config.
 
 The configuration and init scripts are divided into modules, to make it easier to develop. Configuration values can be changed quickly by setting the variable and running `source ~/.bashrc`
 
 A more static configuration may be generated using the flatten-rc.sh script
+
+Configuration
+=============
+You can see all configuration parameters by running `set | grep ^DOORMAT`
+
+You can change one temporarily by setting the variabl. You need to run `source ~/.bashrc` to apply the changes.
+
+You can apply more long-term (or conditional) changes by adding files to the config directory. Files must be executable (`chmod +x`) before they are loaded
 
 Screenshots
 ===========
