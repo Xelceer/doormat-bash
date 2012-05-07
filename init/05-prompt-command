@@ -1,0 +1,2 @@
+# Reset PROMPT_COMMAND
+PROMPT_COMMAND="ps1_return=\$?;"
