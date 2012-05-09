@@ -17,8 +17,16 @@ then
 		alias ls='ls --color=auto'
 		alias dir='dir --color=auto'
 		alias vdir='vdir --color=auto'
-		alias grep='grep --color=auto'
-		alias fgrep='fgrep --color=auto'
-		alias egrep='egrep --color=auto'
+
+		# Test to see if grep supports the color option
+		echo test | grep test --color > /dev/null 2>&1
+
+		# Set the alias if there's no error
+		if [ $? -eq 0 ]
+		then
+			alias grep='grep --color=auto'
+			alias fgrep='fgrep --color=auto'
+			alias egrep='egrep --color=auto'
+		fi
 	fi
 fi
