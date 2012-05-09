@@ -3,18 +3,14 @@ if [[ $DOORMAT_TITLE -eq 1 ]]
 then
 	if [ $DOORMAT_FQDN -eq 1 ]
 	then
-		if [ -z $PS1_fqdn ]
-		then
-			PS1_fqdn=$(hostname -f)
-		fi
 		prompt_title_xterm()
 		{
-			echo -ne "\033]0;${USER}@${PS1_fqdn}:${PWD/$HOME/~}\007"
+			echo -ne "\033]0;${USER}@\${PS1_fqdn}:${PWD/$HOME/~}\007"
 		}
 
 		prompt_title_screen()
 		{
-			echo -ne "\033_${USER}@${PS1_fqdn}:${PWD/$HOME/~}\033\\"
+			echo -ne "\033_${USER}@\${PS1_fqdn}:${PWD/$HOME/~}\033\\"
 		}
 	else
 		prompt_title_xterm()
