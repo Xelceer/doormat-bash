@@ -1,6 +1,6 @@
 if [[ $EUID -eq 0 ]]
 then
-	PS1='$PS1_stopwatch \h \! \W \$ '
+	DOORMAT_PS1='$PS1_stopwatch \h \! \W \$ '
 	DOORMAT_COLOR_AT='[0;31m' # light red
 	DOORMAT_COLOR_HOSTNAME='[1;31m' # bold red
 	DOORMAT_COLOR_DOMAIN='[0;31m' # light red
