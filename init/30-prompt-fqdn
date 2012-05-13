@@ -3,7 +3,18 @@ if [[ $DOORMAT_FQDN -eq 1 ]]
 then
 	if [ -z $PS1_fqdn ]
 	then
-		PS1_fqdn=$(hostname -f)
+		# Use timeout command if it exists
+		type timeout > /dev/null 2>&1
+		if [ $? -eq 0 ]
+		then
+			PS1_fqdn=$(timeout 1 hostname -f)
+			if [ $? -eq 124 ]
+			then
+				echo "Warning: Hostname Lookup Timed Out!"
+			fi
+		else
+			PS1_fqdn=$(hostname -f)
+		fi
 	fi
 	PS1=${PS1/\\h/\\h$\{PS1_fqdn\#\#\\h\}}
 fi
