@@ -5,12 +5,12 @@ then
 	then
 		prompt_title_xterm()
 		{
-			echo -ne "\033]0;${USER}@\${PS1_fqdn}:${PWD/$HOME/~}\007"
+			echo -ne "\033]0;${USER}@${PS1_fqdn}:${PWD/$HOME/~}\007"
 		}
 
 		prompt_title_screen()
 		{
-			echo -ne "\033_${USER}@\${PS1_fqdn}:${PWD/$HOME/~}\033\\"
+			echo -ne "\033_${USER}@${PS1_fqdn}:${PWD/$HOME/~}\033\\"
 		}
 	else
 		prompt_title_xterm()
