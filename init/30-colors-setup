@@ -29,4 +29,11 @@ then
 			alias egrep='egrep --color=auto'
 		fi
 	fi
+
+	# If on MAC, enable the colosr on the terminal and dfeine LSCOLORS
+	if [[ $OSTYPE == darwin* ]];
+	then
+	        export CLICOLOR=1
+	        export LSCOLORS=GxFxCxDxBxegedabagaced
+	fi
 fi
