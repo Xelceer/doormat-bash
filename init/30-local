@@ -1,0 +1,19 @@
+if [[ $DOORMAT_LOCAL -eq 1 ]];
+then
+	# If a .local/bin exists, use it in $PATH
+	if [ -d "$HOME/.local/bin" ];
+	then
+		PATH="$HOME/.local/bin:$PATH"
+	fi
+
+	# If an autocomplete directory exists, use it
+	if [ -d "$HOME/.local/etc/bash_completion.d" ];
+	then
+		for SCRIPT in $HOME/.local/etc/bash_completion.d/* 
+		do
+			if [ -x "${SCRIPT}" ]; then
+				. ${SCRIPT}
+			fi
+		done
+	fi
+fi
