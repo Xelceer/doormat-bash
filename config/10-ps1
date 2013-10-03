@@ -1,2 +1,2 @@
 # Configure primary prompt (PS1)
-DOORMAT_PS1='$PS1_stopwatch \u@\h \! \w \$ '
+DOORMAT_PS1='$PS1_stopwatch \u@\h \w \$ '
