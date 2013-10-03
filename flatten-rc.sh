@@ -14,7 +14,7 @@ echo 'if [ -z "$DOORMAT_CONFIG" ]'
 echo 'then'
 
 # Load config
-for SCRIPT in ~/.doormat/bash/config/*
+for SCRIPT in config/*
 do
 	if [ -x "${SCRIPT}" ]; then
 		echo "# File: ${SCRIPT}"
@@ -32,7 +32,7 @@ echo '# Common/Useful Aliases not defined by functionality'
 echo '#'
 echo
 
-for SCRIPT in ~/.doormat/bash/aliases/*
+for SCRIPT in aliases/*
 do
 	if [ -x "${SCRIPT}" ]; then
 		echo "# File: ${SCRIPT}"
@@ -48,7 +48,7 @@ echo '#'
 echo
 
 # Load scripts
-for SCRIPT in ~/.doormat/bash/init/*
+for SCRIPT in init/*
 do
 	if [ -x "${SCRIPT}" ]; then
 		echo "# File: ${SCRIPT}"
